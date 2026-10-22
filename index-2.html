@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Sama Ma'am! 🌷</title>
+<style>
+:root{
+  --pink:#f7c9dc;--pink2:#ffe8f1;--deep:#a94d76;--rose:#d979a0;
+  --cream:#fffafd;--ink:#75465a;--white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;overflow-x:hidden;
+  font-family:"Trebuchet MS",Arial,sans-serif;color:var(--ink);
+  background:linear-gradient(145deg,#fffafd,#ffeaf3 55%,#fff7fb);
+}
+button{font:inherit;cursor:pointer}
+.petal{
+ position:fixed;top:-35px;z-index:0;pointer-events:none;opacity:.72;
+ animation:fall linear forwards;font-size:18px;
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(460deg);opacity:.15}}
+.sparkle{position:fixed;pointer-events:none;color:#e6a5c0;z-index:0;animation:twinkle 2.4s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.25;transform:scale(.8)}to{opacity:.9;transform:scale(1.15)}}
+main{position:relative;z-index:1;max-width:850px;margin:0 auto;padding:22px 16px 40px}
+.topline{text-align:center;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#bc7595;margin:6px 0 16px}
+.progress{height:5px;background:#f7d8e5;border-radius:20px;overflow:hidden;margin:0 auto 20px;max-width:480px}
+.progress span{display:block;height:100%;width:16.666%;background:linear-gradient(90deg,#d979a0,#efabc8);transition:width .4s}
+.page{
+ display:none;min-height:70vh;animation:appear .55s ease both;
+ align-items:center;justify-content:center;flex-direction:column;text-align:center;
+}
+.page.active{display:flex}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card{
+ width:100%;max-width:700px;padding:clamp(22px,5vw,44px);
+ border:1px solid #f7d4e2;border-radius:28px;
+ background:rgba(255,255,255,.78);box-shadow:0 15px 40px rgba(179,94,132,.12);
+}
+.eyebrow{color:#bf7194;font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px}
+h1{font-size:clamp(2.1rem,8vw,4.2rem);line-height:1.05;color:#a94d76;margin:8px 0 18px}
+h2{font-size:clamp(1.65rem,6vw,2.7rem);line-height:1.12;color:#a94d76;margin:8px 0 18px}
+p{font-size:1.02rem;line-height:1.8;margin:10px auto;max-width:590px}
+.flowerline{font-size:clamp(1.6rem,6vw,2.4rem);letter-spacing:.1em;margin:4px 0 14px}
+.subtitle{color:#9d6b80;font-size:1.05rem}
+.btnrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:25px}
+.btn{
+ border:0;border-radius:999px;padding:13px 22px;font-weight:700;
+ background:linear-gradient(135deg,#e58eb2,#ce6f99);color:white;
+ box-shadow:0 7px 16px rgba(197,99,143,.2);transition:transform .2s,filter .2s;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.btn.secondary{background:white;color:#ad5b80;border:1px solid #efc5d7;box-shadow:none}
+.smallnote{font-size:.84rem;color:#b17a92;margin-top:18px}
+.reveal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px auto 0;max-width:580px;width:100%}
+.reveal{
+ min-height:125px;border:1px solid #f2c8d9;border-radius:18px;background:#fff8fb;color:#a9577d;
+ padding:17px 12px;font-weight:700;line-height:1.45;box-shadow:0 5px 15px #d79ab41a;
+}
+.reveal .msg{display:none;font-weight:400;font-size:.9rem;margin-top:8px;color:#81556a}
+.reveal.open{background:#fff0f6}
+.reveal.open .msg{display:block}
+.map-orbit{width:160px;height:160px;border-radius:50%;margin:10px auto 22px;display:grid;place-items:center;
+ background:radial-gradient(circle at 35% 30%,#fff 0 10%,#d4f0e0 11% 24%,#a7d7be 25% 38%,#9ec7e7 39% 58%,#77a9d1 59% 100%);
+ box-shadow:inset -10px -10px 20px #547a9a44,0 0 0 10px #fff7fb,0 0 0 12px #f3d1e0;animation:float 4s ease-in-out infinite;font-size:2rem}
+@keyframes float{50%{transform:translateY(-7px)}}
+.quote{font-style:italic;color:#9b5a78;font-size:1.1rem}
+.award{border:2px dashed #e7a7c2;border-radius:22px;padding:25px 18px;background:linear-gradient(135deg,#fff9fc,#fff0f6);margin:20px auto;max-width:520px}
+.award .medal{font-size:3rem}
+.envelope-wrap{margin:22px auto;perspective:700px}
+.envelope{
+ position:relative;width:min(290px,75vw);height:180px;margin:auto;border:0;background:#f4bfd4;border-radius:8px;
+ box-shadow:0 10px 24px #b8678b26;overflow:hidden;
+}
+.envelope:before{content:"";position:absolute;inset:0;background:#f9d7e5;clip-path:polygon(0 0,100% 0,50% 58%)}
+.envelope:after{content:"";position:absolute;inset:0;background:#efb2cc;clip-path:polygon(0 100%,0 0,50% 58%,100% 0,100% 100%)}
+.seal{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2rem}
+.letter{display:none;text-align:left;background:#fffafd;border:1px solid #f3cada;border-radius:20px;padding:22px;max-width:620px;margin:20px auto 0;white-space:pre-line;line-height:1.9;box-shadow:0 8px 24px #bc72951a}
+.letter.show{display:block;animation:appear .5s ease}
+.signature{color:#a94d76;font-weight:bold}
+.footer{text-align:center;color:#c18ba3;font-size:.8rem;margin-top:16px}
+@media(max-width:440px){.reveal-grid{grid-template-columns:1fr}.reveal{min-height:95px}.card{border-radius:22px}.page{min-height:72vh}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="decor" aria-hidden="true"></div>
+<main>
+  <div class="topline">A little surprise made with love 🌷</div>
+  <div class="progress" aria-label="Website progress"><span id="bar"></span></div>
+
+  <section class="page active" data-page="0">
+    <div class="card">
+      <div class="flowerline">🌸 🤍 🌷</div>
+      <p class="eyebrow">A tiny website for a very special person</p>
+      <h1>Someone Wonderful<br>Has a Birthday!</h1>
+      <p class="subtitle">And she deserves a little reminder of how much light she brings into the world.</p>
+      <div class="flowerline">🦋 ✨ 🌼</div>
+      <div class="btnrow"><button class="btn" onclick="go(1)">Open your surprise 💌</button></div>
+      <p class="smallnote">Made especially for Sama Ma'am · 28 October</p>
+    </div>
+  </section>
+
+  <section class="page" data-page="1">
+    <div class="card">
+      <div class="flowerline">🎉 🌷 🎂 🌷 🎉</div>
+      <p class="eyebrow">Today is all about you</p>
+      <h1>Happy Birthday,<br>Sama Ma'am! 💗</h1>
+      <p>May your day be as gentle as your heart, as lovely as your smile, and filled with the same kindness you give to others.</p>
+      <p class="quote">“Some people make an ordinary day feel a little more beautiful.”</p>
+      <div class="btnrow"><button class="btn" onclick="confettiBurst();go(2)">There's more, Ma'am 🌸</button><button class="btn secondary" onclick="go(0)">Back</button></div>
+    </div>
+  </section>
+
+  <section class="page" data-page="2">
+    <div class="card">
+      <p class="eyebrow">A little geography of kindness</p>
+      <div class="map-orbit" aria-hidden="true">💗</div>
+      <h2>You Teach Us About the World…</h2>
+      <p>…but your kindness reminds us that the most beautiful places aren't only found on maps. Sometimes, they're found in the people who make us feel welcomed, encouraged, and cared for.</p>
+      <p>Thank you for making Geography more than places and boundaries, and for bringing warmth into the classroom. 🌍</p>
+      <div class="btnrow"><button class="btn" onclick="go(3)">A few little things 💐</button><button class="btn secondary" onclick="go(1)">Back</button></div>
+    </div>
+  </section>
+
+  <section class="page" data-page="3">
+    <div class="card">
+      <p class="eyebrow">Tap each flower to open a little note</p>
+      <h2>Things I Appreciate About You 🌷</h2>
+      <p class="subtitle">Four small reminders for one very special teacher.</p>
+      <div class="reveal-grid">
+        <button class="reveal" onclick="toggleCard(this)">🌸 Your kindness<span class="msg">The way you treat people with care makes a difference, even in moments you may not notice.</span></button>
+        <button class="reveal" onclick="toggleCard(this)">🤍 Your humble heart<span class="msg">You make it easy to respect you not just as a teacher, but as a person.</span></button>
+        <button class="reveal" onclick="toggleCard(this)">💻 Your teaching<span class="msg">Thank you for sharing your knowledge in Geography and Computer, and helping us learn little by little.</span></button>
+        <button class="reveal" onclick="toggleCard(this)">🦋 Your warmth<span class="msg">The care and encouragement you give can stay with a student long after a lesson ends.</span></button>
+      </div>
+      <div class="btnrow"><button class="btn" onclick="go(4)">A little award for you 🏆</button><button class="btn secondary" onclick="go(2)">Back</button></div>
+    </div>
+  </section>
+
+  <section class="page" data-page="4">
+    <div class="card">
+      <p class="eyebrow">Officially, from one grateful student</p>
+      <div class="award">
+        <div class="medal">🏆</div>
+        <h2 style="margin-bottom:8px">The Most Special Teacher Award</h2>
+        <p>Awarded to <strong>Sama Ma'am</strong></p>
+        <p>For being humble, loving, caring, and for making learning feel a little brighter.</p>
+        <div class="flowerline">🌸 🤍 🌸</div>
+        <p class="quote">“A good teacher explains a lesson. A wonderful teacher leaves kindness behind, too.”</p>
+      </div>
+      <p>And now, Ma'am… there's one last thing I'd really like you to read. 💌</p>
+      <div class="btnrow"><button class="btn" onclick="go(5)">Open your letter 💗</button><button class="btn secondary" onclick="go(3)">Back</button></div>
+    </div>
+  </section>
+
+  <section class="page" data-page="5">
+    <div class="card">
+      <p class="eyebrow">A letter, just for you</p>
+      <h2>For Sama Ma'am, With Love 🤍</h2>
+      <p>Some thank-yous are too big for a classroom, so I made a little corner of the internet for mine.</p>
+      <div class="envelope-wrap">
+        <button class="envelope" onclick="openLetter()" aria-label="Open the birthday letter"><span class="seal">💌</span></button>
+      </div>
+      <p class="smallnote">Tap the envelope to open your letter.</p>
+      <div id="letter" class="letter"></div>
+      <div class="btnrow"><button class="btn" onclick="openLetter()">Open the letter 💗</button><button class="btn secondary" onclick="go(4)">Back</button></div>
+      <div class="footer">With lots of respect and warm wishes · 28 October 🌷</div>
+    </div>
+  </section>
+</main>
+<script>
+const pages=[...document.querySelectorAll('.page')];
+let current=0, letterOpened=false;
+function go(n){
+ current=Math.max(0,Math.min(pages.length-1,n));
+ pages.forEach((p,i)=>p.classList.toggle('active',i===current));
+ document.getElementById('bar').style.width=((current+1)/pages.length*100)+'%';
+ window.scrollTo({top:0,behavior:'smooth'});
+ if(current===1) confettiBurst();
+}
+function toggleCard(btn){btn.classList.toggle('open')}
+function makePetal(){
+ const el=document.createElement('span');el.className='petal';
+ el.textContent=['🌸','🌷','✿','❀','🤍'][Math.floor(Math.random()*5)];
+ el.style.left=Math.random()*100+'vw';
+ el.style.animationDuration=(7+Math.random()*7)+'s';
+ el.style.fontSize=(13+Math.random()*15)+'px';
+ document.body.appendChild(el);setTimeout(()=>el.remove(),15000);
+}
+for(let i=0;i<13;i++)setTimeout(makePetal,i*360);
+setInterval(makePetal,900);
+for(let i=0;i<14;i++){
+ const s=document.createElement('span');s.className='sparkle';s.textContent='✦';
+ s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=(Math.random()*3)+'s';s.style.fontSize=(8+Math.random()*9)+'px';
+ document.getElementById('decor').appendChild(s);
+}
+function confettiBurst(){
+ const emojis=['🌸','💗','✨','🎉','🌷','🤍'];
+ for(let i=0;i<24;i++){
+  const e=document.createElement('span');e.className='petal';
+  e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left=(8+Math.random()*84)+'vw';e.style.animationDuration=(3+Math.random()*3)+'s';
+  e.style.fontSize=(15+Math.random()*15)+'px';document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6500);
+ }
+}
+const letterText=`Dear Sama Ma'am,
+
+Happy Birthday! 🌷
+
+I just wanted to take a moment to tell you how grateful I am to have you as my Geography and Computer teacher. You are so humble, loving, and caring, and those qualities make you truly special to me.
+
+Thank you for the knowledge you share, for the kindness you show, and for making your students feel that they matter. Sometimes, a teacher's small act of care can brighten a student's whole day. I hope you know that your warmth and the way you treat people can make a real difference.
+
+On your birthday, I pray that Allah blesses you with good health, peace, happiness, and countless beautiful moments. May He make your worries lighter, your heart content, and your coming year full of goodness. May the kindness you give to others find its way back to you many times over. Ameen. 🤍
+
+I hope you always have reasons to smile, people who appreciate you, and days that remind you how valued you are. You deserve the same care and happiness that you so freely give.
+
+Thank you for being more than someone who teaches lessons — thank you for being someone whose kindness I will remember.
+
+Happy Birthday once again, Sama Ma'am. May your life bloom beautifully, just like these little flowers. 🌸
+
+With lots of respect, duas, and warm wishes,
+Your grateful student 💗`;
+function openLetter(){
+ if(letterOpened){document.getElementById('letter').classList.add('show');return}
+ letterOpened=true;
+ const box=document.getElementById('letter');box.classList.add('show');box.textContent='';
+ let i=0;
+ const timer=setInterval(()=>{box.textContent=letterText.slice(0,i+=4);if(i>=letterText.length)clearInterval(timer)},14);
+ confettiBurst();
+}
+</script>
+</body>
+</html>
